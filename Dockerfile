@@ -2,7 +2,8 @@ FROM nextcloud:fpm-alpine
 
 RUN apk add --no-cache clamav-daemon freshclam clamav-libunrar supervisor \
   && mkdir /var/log/supervisord /var/run/supervisord \
-  && freshclam
+  && freshclam \
+  && mkdir /run/clamav
 
 COPY etc /etc/
 
